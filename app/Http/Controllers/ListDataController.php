@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ListData;
+use App\Models\ListData;
 use Illuminate\Http\Request;
 
 class ListDataController extends Controller
@@ -12,9 +12,9 @@ class ListDataController extends Controller
      */
     public function index()
     {
-        $listdatas = ListData::all();
+        $listData = ListData::all();
         $data = [
-            'listdatas' => $listdatas
+            'listdatas' => $listData
         ];
         return view('listdatas/index', $data);
     }
