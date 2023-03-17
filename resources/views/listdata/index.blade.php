@@ -7,11 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">List Data</div>
                     <div class="panel-body">
-                        <a href="{{ url('listdatas.create') }}" class="btn btn-primary">Add listdata</a>
-
-                        <br>
-                        <br>
-                        <br>
+                        <a href="{{ url('listdata.create') }}" class="btn btn-primary">Add listdata</a>
 
                         <div class="table-responsive">
                             <table class="table">
@@ -20,24 +16,26 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Status</th>
+                                    <th>Password</th>
                                     <th>Action</th>
                                     </th>
 
-                                    @if (!count($listdatas))
-                                        {{-- <tr>
+                                    {{-- @if (!count($listdata))
+                                        <tr>
                                     <td colspan="3">No Listdata</td>
-                                </tr> --}}
-                                    @endif
-                                    @foreach ($listdatas as $listdata)
+                                </tr>
+                                    @endif --}}
+                                    @foreach ($listdata as $listdata)
                                 <tr>
                                     <td>{{ $listdata->name }}</td>
                                     <td>{{ $listdata->email }}</td>
                                     <td>{{ $listdata->status }}</td>
+                                    <td>{{ $listdata->passwords }}</td>
                                     <td>
                                         <a class="btn btn-warning"
-                                            href="{{ url('listdatas/' . $listdata->id . '/edit') }}">Edit</a>
+                                            href="{{ url('listdata/' . $listdata->id . '/edit') }}">Edit</a>
                                         <a class="btn btn-danger"
-                                            href="{{ url('listdatas/' . $listdata->id . '/delete') }}">Delete</a>
+                                            href="{{ url('listdata/' . $listdata->id . '/delete') }}">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

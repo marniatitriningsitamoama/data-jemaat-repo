@@ -6,12 +6,16 @@
          * Show Listdata Dashboard
          */
 
-        Route::get('/', 'ListDataController @index');
+        Route::get('/', 'ListDataController@index');
+
+        Route::get("/test", function () {
+                return view("test");
+        });
 
         /**
          *  Show create Listdata form
          */
-        Route::get('/listdatas/create', 'ListDataController @create');
+        Route::get('/listdata/create', 'ListDataController @create');
 
         /**
          * Add Listdata
@@ -21,14 +25,14 @@
         /**
          * Show edit Listdata
          */
-        Route::get('listdatas/{listdata}/edit', 'ListDataController @edit');
+        Route::get('listdata/{listdata}/edit', 'ListDataController @edit');
 
         /**
          * update Listdata
          */
-        Route::put('listdatas/{listdata}', 'ListDataController @update');
+        Route::put('listdata/{listdata}', 'ListDataController @update');
 
         /**
          * Delete Listdata
          */
-        Route::get('/listdatas/{listdata}/delete', 'ListDataController @delete');
+        Route::get('/listdata/{listdata}/delete', 'ListDataController @delete');

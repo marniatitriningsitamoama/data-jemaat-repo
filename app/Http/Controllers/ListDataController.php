@@ -12,11 +12,15 @@ class ListDataController extends Controller
      */
     public function index()
     {
-        $listdatas = ListData::all();
-        $data = [
-            'listdatas' => $listdatas
-        ];
-        return view('listdatas/index', $data);
+        $listdata = ListData::select('*')
+            ->get();
+
+        return view('listdata.index', ['listdata' => $listdata]);
+        // $listdata = ListData::all();
+        // $data = [
+        //     'listdata' => $listdata
+        // ];
+        // return view('listdata/index', $data);
     }
 
     /**
@@ -24,7 +28,7 @@ class ListDataController extends Controller
      */
     public function create()
     {
-        return view('listdatas.create');
+        return view('listdata.create');
     }
 
     /**
@@ -32,17 +36,17 @@ class ListDataController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nama'     => 'required|min:10',
-            'email'     => 'required|min:5',
-            'status'   => 'required|min:10'
-        ]);
-        ListData::create([
-            'nama'     => $request->hashName(),
-            'email'     => $request->email,
-            'status'   => $request->status
-        ]);
-        return redirect()->route('listdatas.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        // $this->validate($request, [
+        //     'nama'     => 'required|min:10',
+        //     'email'     => 'required|min:5',
+        //     'status'   => 'required|min:10'
+        // ]);
+        // ListData::create([
+        //     'nama'     => $request->hashName(),
+        //     'email'     => $request->email,
+        //     'status'   => $request->status
+        // ]);
+        // return redirect()->route('listdata.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -51,10 +55,10 @@ class ListDataController extends Controller
     public function show(string $id)
     {
         //get post by ID
-        $listdatas = ListData::findOrFail($id);
+        $listdata = ListData::findOrFail($id);
 
         //render view with post
-        return view('listdatas.show', compact('listdatas'));
+        return view('listdata.show', compact('listdata'));
     }
 
     /**

@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Data List</div>
                     <div class="panel-body">
-                        <form role="form" method="POST" action="{{ url('/listdatas') }}">
+                        <form role="form" method="POST" action="{{ url('/listdata') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">
@@ -23,7 +23,10 @@
                                 <label class="control-label">Status</label>
                                 <input type="text" name="status" class="form-control">
                             </div>
-
+                            <div class="form-group">
+                                <label class="control-label">Password</label>
+                                <input type="text" name="password" class="form-control">
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Add list</button>
